@@ -15,7 +15,7 @@ export default function Navbar() {
                 <div className="flex gap-2 items-center">
                     {/* <Image src={logo} alt="Logo" width={35} height={35} /> */}
                     <Link href="/" className="font-medium font-chillax text-[1.2rem] md:text-[1.5rem] text-white">
-                        CAREER CRAFT AI
+                        AI CAREER PILOT
                     </Link>
                 </div>
 
