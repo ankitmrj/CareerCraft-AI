@@ -55,7 +55,7 @@ Welcome to **AI Career Pilot**, your all-in-one AI-powered career guidance platf
 Career Craft AI is a **Full-Stack AI Development** project, integrating AI-driven career guidance with modern web technologies. 
 
 ## 🚀 Live Deployment
-Frontend Deployed Link: https://career-craft-ai.vercel.app/
+Frontend Deployed Link: coming soon...
 
 ## 📄License
 
@@ -137,4 +137,4 @@ For any questions or inquiries, feel free to reach out to us at:
 
 - Email: vinaykusumanchi9@gmail.com
 - GitHub: https://github.com/KusumanchiVinay/AI-CAREER-PILOT
-- Website: comming soon...
+- Website: coming soon...
