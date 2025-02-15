@@ -3,7 +3,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Cover } from "@/components/ui/cover";
-import { Spotlight } from "@/components/ui/Spotlight";
 import AnimatedGradientText from "@/components/ui/animated-gradient-text";
 import { PlaceholdersAndVanishInput } from "../components/ui/placeholders-and-vanish-input";
 import Image from "next/image";
@@ -25,17 +24,16 @@ export default function HeroMain() {
     ];
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
     };
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("submitted");
+        // console.log("submitted");
     };
 
     return (
         <div className="w-full flex flex-col items-center justify-center p-4 md:p-8 relative z-20 overflow-hidden">
             <div className="mt-[12vh]"></div>
-            {/* <Spotlight /> */}
             <div className="h-full w-full absolute inset-0 z-0">
                 <SparklesCore
                     id="tsparticlesfullpage"
