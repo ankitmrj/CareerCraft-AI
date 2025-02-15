@@ -5,44 +5,58 @@ Welcome to **AI Career Pilot**, your all-in-one AI-powered career guidance platf
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Features](#features)
-3. [AI Agents](#ai-agents)
-4. [Tech Stack](#tech-stack)
-5. [Installation](#installation)
-6. [Usage](#usage)
-7. [Contributing](#contributing)
-8. [License](#license)
-9. [Contact](#contact)
+2. [Problem Statements & Solutions](#-problem-statements--solutions)
+3. [Features](#-features)
+4. [Promptrepo](#Promptrepo)
+5. [Tech Stack & Tools](#-tech-stack--tools)
+6. [Installation](#installation)
+7. [Usage](#usage)
+8. [Contributing](#contributing)
+9. [License](#license)
+10. [Contact](#contact)
 
 ## Introduction
 
 **AI Career Pilot** is designed to empower students and professionals by leveraging AI for career development. Whether you're looking for the best career path, need a step-by-step roadmap, want to build an impressive portfolio, or need AI-assisted interview preparation, AI Career Pilot has you covered.
 
-## Features
+## 🚀 Problem Statements & Solutions
 
-- AI-powered portfolio website generation in minutes.
-- Personalized career advice based on user input and market trends.
-- Career roadmaps to guide users through skill development and career progression.
-- AI-driven interview prep agent for mock interviews and feedback.
+### 1. Lack of Career Guidance
 
-## AI Tools
+**Problem:** When starting a career, we often seek guidance from experienced professionals who can offer insights and recommendations. However, finding a knowledgeable mentor is not always easy.
 
-### 1. **AI Portfolio Website Generator**
-   - Your intelligent AI agent for building a professional online presence.
-   - Instantly generates a customizable portfolio website to showcase work, projects, and achievements.
+**Solution:** Career Craft AI offers an **AI Career Advisor** that provides personalized career recommendations based on your skills, interests, and market trends, helping you make informed decisions about your career path.
 
-### 2. **AI Career Advisor**
-   - Get personalized career recommendations based on skills, experience, and goals.
-   - AI-driven insights into industry trends and job opportunities.
+### 2. Difficulty in Building a Portfolio
 
-### 3. **Career Roadmaps Agent**
-   - Step-by-step learning paths to help you acquire necessary skills and certifications.
-   - Industry-specific guides to enhance career growth.
+**Problem:** A professional portfolio acts as proof of work and increases the chances of career opportunities. However, creating a well-structured portfolio from scratch can be time-consuming and challenging.
 
-### 4. **AI Interview Prep Agent**
-   - Simulated AI-driven interview sessions for practice.
-   - Tailored interview questions based on job roles.
-   - Feedback and suggestions for improvement.
+**Solution:** Our **AI-Powered Portfolio Generator** allows users to instantly generate a professional portfolio website with just a single prompt, making it easier than ever to showcase work and achievements.
+
+### 3. No Clear Roadmap for Skill Development
+
+**Problem:** When entering a new field or learning a new skill, we often struggle to find a well-structured, step-by-step roadmap that outlines what to learn and how to progress.
+
+**Solution:** Career Craft AI provides a **Roadmap for Success**, a customized learning and skill development plan that guides users through acquiring the necessary skills and certifications for their desired career.
+
+### 4. Ineffective Interview Preparation
+
+**Problem:** Preparing for an interview requires practice, role-specific questions, and constructive feedback, which are not always readily available.
+
+**Solution:** Our **AI Interview Prep Chatbot** simulates real interview scenarios, asks tailored questions based on the role, and provides instant feedback, helping users refine their responses and boost confidence.
+
+## 🔥 Features
+
+- **AI Career Advisor** – Get personalized career recommendations tailored to your skills and interests.
+- **Roadmap for Success** – Follow a structured plan to develop the right skills for your chosen career.
+- **AI-Powered Portfolio Generator** – Instantly create a professional portfolio website.
+- **AI Interview Prep Chatbot** – Practice for interviews with real-time AI feedback and role-specific questions.
+
+## Promptrepo
+
+We have used **Promptrepo** to extract the user's details for generating portfolio
+
+[Promptrepo data set](https://docs.google.com/spreadsheets/d/1WNmaCnpeqgD8aNMgVALb3MiVv2MbQvJFx7twd4-uy-A/edit?usp=sharing)
 
 ## 🛠 Tech Stack & Tools
 - **Frontend:** Next.js, Tailwind CSS  
@@ -51,11 +65,12 @@ Welcome to **AI Career Pilot**, your all-in-one AI-powered career guidance platf
 - **Authentication:** Clerk Authentication - Google, LinkedIn, Email
 - **Deployment:** Vercel (Frontend), Vercel (Backend)  
 - **Other Tools:** Framer Motion (UI Animations), Aceternity UI, Magic UI, Shadcn
+
 ## 🌍 Domain  
-Career Craft AI is a **Full-Stack AI Development** project, integrating AI-driven career guidance with modern web technologies. 
+AI Career Pilot is a **Full-Stack AI Development** project, integrating AI-driven career guidance with modern web technologies. 
 
 ## 🚀 Live Deployment
-Frontend Deployed Link: coming soon...
+Frontend Deployed Link: https://ai-career-pilot.vercel.app/
 
 ## 📄License
 
@@ -63,7 +78,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Installation
 
-To get started with **Career Craft AI**, follow these steps:
+To get started with **AI Career Pilot**, follow these steps:
 
 ### Prerequisites
 - Node.js (v14 or later)
@@ -74,8 +89,8 @@ To get started with **Career Craft AI**, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/Yagna123k/CAREER-CRAFT-AI.git
-   cd CAREER-CRAFT-AI
+   git clone https://github.com/KusumanchiVinay/AI-CAREER-PILOT.git
+   cd AI-CAREER-PILOT
    ```
 
 2. Install the dependencies:
@@ -88,7 +103,29 @@ To get started with **Career Craft AI**, follow these steps:
    cd server
    npm install
    ```
-3. Run the app locally:
+
+3. Set up environment variables for API keys, database configurations, etc.
+   ```
+   cd server
+   // ceate .env file
+   
+   PORT = 
+   MongoURI =
+   CLIENT_URL=
+   ```
+   ```
+   cd client
+   // ceate .env.local file
+   
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+   CLERK_SECRET_KEY=
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+   MISTRAL_API_KEY=
+   NEXT_PUBLIC_GEMINI_API_KEY=
+   NEXT_PUBLIC_BACKEND_URL=
+   ```
+
+5. Run the app locally:
 
    ```bash
    cd client
@@ -99,16 +136,7 @@ To get started with **Career Craft AI**, follow these steps:
    npm run dev
    ```
 
-4. Visit `http://localhost:3000` in your browser to explore the platform.
-
-## Usage
-
-Once installed, access the dashboard and explore the AI agents:
-
-- **AI Portfolio Website Generator** – Your AI-powered agent to build and customize your portfolio website effortlessly.
-- **AI Career Advisor** – Get career suggestions tailored to your skills and interests.
-- **Career Roadmaps Agent** – Follow structured career progression guides.
-- **AI Interview Prep Agent** – Practice interview questions and receive AI-generated feedback.
+6. Visit `http://localhost:3000` in your browser to explore the platform.
 
 ## Usage
 
@@ -137,4 +165,4 @@ For any questions or inquiries, feel free to reach out to us at:
 
 - Email: vinaykusumanchi9@gmail.com
 - GitHub: https://github.com/KusumanchiVinay/AI-CAREER-PILOT
-- Website: coming soon...
+- Website: [AI Career Pilot](https://ai-career-pilot.vercel.app/)
