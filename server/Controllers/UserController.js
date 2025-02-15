@@ -1,61 +1,205 @@
-const Users = require("../Models/UserModel");
+const Users = require("../Schemas/UserSchema")
 
-// Get all users
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+const createUser = async (req, res) => {
+
+    try {
+        const { name, picture, email } = req.body
+
+        const existingUser = await Users.findOne({ email })
+        if (existingUser) {
+            return res.status(400).json({ error: 'User already exists' })
+        }
+
+        var [firstName, lastName] = name.split(' ')
+        if (lastName == undefined) {
+            lastName = ''
+        }
+        const userId = Math.floor(Math.random() * 10000) + 1
+
+        const newUser = {
+            name,
+            FirstName: capitalize(firstName),
+            LastName: capitalize(lastName),
+            UserId: userId,
+            picture,
+            email,
+            portfolios: [],
+            profile: {
+                fullName: "",
+                phoneNumber: "",
+                role: "",
+                emailAddress: "",
+                bio: "",
+                resume: "",
+                skills: [],
+                socialLinks: {
+                    website: "",
+                    facebook: "",
+                    twitter: "",
+                    instagram: "",
+                    linkedin: "",
+                    github: "",
+                    behance: "",
+                    dribbble: "",
+                },
+                education: {
+                    degree: "",
+                    fieldOfStudy: "",
+                    institution: "",
+                    graduationYear: null,
+                },
+                workExperience: [
+                    {
+                        jobTitle: "",
+                        organization: "",
+                        duration: "",
+                        description: "",
+                    },
+                ],
+                achievements: [
+                    {
+                        title: "",
+                        description: "",
+                        year: null,
+                    },
+                ],
+                projects: [
+                    {
+                        name: "",
+                        description: "",
+                        imgLink: "",
+                        stack: [],
+                        SourceCode: "",
+                        livePreview: "",
+                    },
+                    {
+                        name: "",
+                        description: "",
+                        imgLink: "",
+                        stack: [],
+                        SourceCode: "",
+                        livePreview: "",
+                    },
+                    {
+                        name: "",
+                        description: "",
+                        imgLink: "",
+                        stack: [],
+                        SourceCode: "",
+                        livePreview: "",
+                    },
+                ],
+            },
+        }
+
+        await Users.create(newUser)
+
+        const userData = await Users.findOne({ email: email })
+
+        if (userData) {
+            res.status(201).json(userData)
+        }
+
+    } catch (err) {
+        console.error(err)
+        res.status(500).send({ message: 'Internal Server Error' })
+    }
+}
+
 const getAllUsers = async (req, res) => {
     try {
-        const users = await Users.find();
-        res.status(200).json(users);
+        const allUsers = await Users.find()
+        res.status(200).json(allUsers)
     } catch (error) {
-        res.status(500).json({ message: "Error fetching users", error });
+        console.error(error)
+        res.status(500).json({ error: 'Internal Server Error' })
     }
-};
+}
 
-// Get user by ID
-const getUserById = async (req, res) => {
+const getUser = async (req, res) => {
+    const userId = Number(req.params.id); // Convert to Number
+
     try {
-        const user = await Users.findOne({ UserId: req.params.id });
-        if (!user) return res.status(404).json({ message: "User not found" });
-        res.status(200).json(user);
-    } catch (error) {
-        res.status(500).json({ message: "Error fetching user", error });
+        const data = await Users.findOne({ UserId: userId });
+
+        if (!data) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json(data);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 };
 
-// Create a new user
-const createUser = async (req, res) => {
+
+const getUserByEmail = async (req, res) => {
+    const userEmail = req.query.email
+    const userData = await Users.findOne({ email: userEmail })
+    if (userData) {
+        res.status(200).json(userData)
+    } else {
+        res.status(404).json({ error: "User not found" })
+    }
+}
+
+const updatePortfolios = async (req, res) => {
     try {
-        const newUser = new Users(req.body);
-        await newUser.save();
-        res.status(201).json({ message: "User created successfully", user: newUser });
-    } catch (error) {
-        res.status(500).json({ message: "Error creating user", error });
-    }
-};
+        const { email, portfolio } = req.body
 
-// Update user details
-const updateUser = async (req, res) => {
+        const user = await Users.findOne({ email })
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' })
+        }
+
+        user.portfolios.push(portfolio)
+
+        await user.save()
+
+        res.status(200).json({ message: 'Portfolios updated successfully', user })
+    } catch (err) {
+        console.error(err)
+        res.status(500).send({ message: 'Internal Server Error' })
+    }
+}
+
+const updateUserProfile = async (req, res) => {
     try {
-        const updatedUser = await Users.findOneAndUpdate(
-            { UserId: req.params.id },
-            req.body,
-            { new: true }
-        );
-        if (!updatedUser) return res.status(404).json({ message: "User not found" });
-        res.status(200).json({ message: "User updated successfully", user: updatedUser });
-    } catch (error) {
-        res.status(500).json({ message: "Error updating user", error });
-    }
-};
+        const { email, profile, name } = req.body
 
-// Delete user
-const deleteUser = async (req, res) => {
-    try {
-        const deletedUser = await Users.findOneAndDelete({ UserId: req.params.id });
-        if (!deletedUser) return res.status(404).json({ message: "User not found" });
-        res.status(200).json({ message: "User deleted successfully" });
-    } catch (error) {
-        res.status(500).json({ message: "Error deleting user", error });
-    }
-};
+        const existingUser = await Users.findOne({ email })
 
-module.exports = { getAllUsers, getUserById, createUser, updateUser, deleteUser };
+        if (!existingUser) {
+            return res.status(404).json({ error: 'User not found' })
+        }
+        var [firstName, lastName] = name.split(' ')
+        if (lastName == undefined) {
+            lastName = ''
+        }
+        existingUser.FirstName = capitalize(firstName),
+            existingUser.LastName = capitalize(lastName),
+            existingUser.name = name
+        existingUser.profile = profile
+        await existingUser.save()
+
+        const updatedUser = await Users.findOne({ email })
+
+        if (updatedUser) {
+            res.status(200).json(updatedUser)
+        } else {
+            res.status(404).json({ error: 'User not found after update' })
+        }
+
+    } catch (err) {
+        console.error(err)
+        res.status(500).send({ message: 'Internal Server Error' })
+    }
+}
+
+
+module.exports = { createUser, getAllUsers, getUser, getUserByEmail, updatePortfolios, updateUserProfile }
