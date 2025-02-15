@@ -25,7 +25,7 @@ Welcome to **AI Career Pilot**, your all-in-one AI-powered career guidance platf
 
 **Problem:** When starting a career, we often seek guidance from experienced professionals who can offer insights and recommendations. However, finding a knowledgeable mentor is not always easy.
 
-**Solution:** Career Craft AI offers an **AI Career Advisor** that provides personalized career recommendations based on your skills, interests, and market trends, helping you make informed decisions about your career path.
+**Solution:** AI Career Pilot offers an **AI Career Advisor** that provides personalized career recommendations based on your skills, interests, and market trends, helping you make informed decisions about your career path.
 
 ### 2. Difficulty in Building a Portfolio
 
@@ -37,7 +37,7 @@ Welcome to **AI Career Pilot**, your all-in-one AI-powered career guidance platf
 
 **Problem:** When entering a new field or learning a new skill, we often struggle to find a well-structured, step-by-step roadmap that outlines what to learn and how to progress.
 
-**Solution:** Career Craft AI provides a **Roadmap for Success**, a customized learning and skill development plan that guides users through acquiring the necessary skills and certifications for their desired career.
+**Solution:** AI Career Pilot provides a **Roadmap for Success**, a customized learning and skill development plan that guides users through acquiring the necessary skills and certifications for their desired career.
 
 ### 4. Ineffective Interview Preparation
 
