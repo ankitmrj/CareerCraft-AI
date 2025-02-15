@@ -55,7 +55,7 @@ export default function HeroMain() {
                         `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#7D47EA] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
                     )}
                 >
-                    Introducing Career Craft AI
+                    Introducing AI Career Pilot
                 </span>
             </AnimatedGradientText>
             <div className="relative z-20 mx-auto my-6 text-center text-3xl font-semibold tracking-tight text-neutral-300 md:text-6xl">
