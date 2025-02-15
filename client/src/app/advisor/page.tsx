@@ -14,6 +14,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const sendMessage = async () => {

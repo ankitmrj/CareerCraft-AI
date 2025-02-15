@@ -6,8 +6,6 @@ import Image from "next/image";
 import portfolio1 from "@/assets/Portfolio1.png"
 import { useMyContext } from "@/context/MyContext";
 
-
-
 export default function Portfolios() {
   const { userProfile } = useMyContext();
   const templates = [

@@ -76,7 +76,7 @@ export default function Navbar() {
             href="/"
             className="font-medium font-chillax text-[1.2rem] md:text-[1.5rem] text-white"
           >
-            CAREER CRAFT AI
+            AI CAREER PILOT
           </Link>
         </div>
 
